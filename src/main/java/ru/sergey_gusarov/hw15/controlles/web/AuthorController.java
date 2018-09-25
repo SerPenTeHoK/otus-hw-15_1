@@ -27,13 +27,13 @@ public class AuthorController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/authors")
+    //@GetMapping("/authors")
     public String listAuthorPage(Model model) {
         List<Author> authors = authorService.findAll();
         model.addAttribute("authors", authors);
         return "authors";
     }
-    @RequestMapping("/author")
+    //@RequestMapping("/author")
     public String authorPage(@ModelAttribute Author author, Model model) {
         Author authorFromDb = authorService.getById(author.getId()).orElseThrow(NotFoundException::new);
         model.addAttribute("author", authorFromDb);
