@@ -1,4 +1,4 @@
-function getAuthors(){
+function getAuthorList(){
     var resultAuthors = $.ajax({
         type : "GET",
         contentType : "application/json",

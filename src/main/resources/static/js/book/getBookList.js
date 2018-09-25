@@ -1,5 +1,5 @@
 function getBooks(){
-    var resultBook = $.ajax({
+    var resultBooks = $.ajax({
         type : "GET",
         contentType : "application/json",
         url : "/book",
@@ -13,5 +13,5 @@ function getBooks(){
         },
         async: false
     });
-    return resultBook.responseText;
+    return resultBooks.responseText;
 }
