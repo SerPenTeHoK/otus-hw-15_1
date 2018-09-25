@@ -19,7 +19,7 @@ $(document).ready(function() {
                 console.log("success add book!");
             },
             error : function(e) {
-                console.log("ERROR: ", e);
+                console.error("ERROR: ", e);
                 alert('Duplicate name = ' + $("#name").val());
             }
         });

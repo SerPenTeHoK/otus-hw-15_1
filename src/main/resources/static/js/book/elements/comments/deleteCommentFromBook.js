@@ -16,7 +16,7 @@ function deleteComment(commentText){
             markupCommentTable(result);
         },
         error : function(e) {
-            console.log("ERROR: ", e);
+            console.error("ERROR: ", e);
         }
     });
 }

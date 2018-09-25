@@ -19,8 +19,7 @@ $(document).ready(function() {
                 console.log("success add comment!");
             },
             error : function(e) {
-                console.log("ERROR: ", e);
-                alert("ERROR: "+ e);
+                console.error("ERROR: ", e);
             }
         });
     }

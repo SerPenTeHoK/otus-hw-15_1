@@ -1,15 +1,15 @@
 function getBooks(){
     var resultBook = $.ajax({
-        type : "POST",
+        type : "GET",
         contentType : "application/json",
-        url : "/books",
+        url : "/book",
         data : "",
         dataType : "json",
         success : function(result) {
-            console.log("success table books!");
+            console.log("success get books!");
         },
         error : function(e) {
-            console.log("ERROR: ", e);
+            console.error("ERROR: ", e);
         },
         async: false
     });

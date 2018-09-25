@@ -18,7 +18,7 @@ $(document).ready(function() {
                 console.log("success add author!");
             },
             error : function(e) {
-                console.log("ERROR: ", e);
+                console.error("ERROR: ", e);
             }
         });
     }
