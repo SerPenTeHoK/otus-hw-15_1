@@ -11,14 +11,14 @@ $(document).ready(function() {
         $.ajax({
             type : "PUT",
             contentType : "application/json",
-            url : "/editBook",
+            url : "/book",
             data : JSON.stringify(formData),
             dataType : "json",
             success : function(result) {
                 console.log("success edit book!");
             },
             error : function(e) {
-                console.log("ERROR: ", e);
+                console.error("ERROR: ", e);
             }
         });
     }

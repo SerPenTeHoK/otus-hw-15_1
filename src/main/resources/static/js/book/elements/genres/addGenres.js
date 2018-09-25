@@ -9,7 +9,7 @@ $(document).ready(function() {
         }
         $.ajax({
             type : "POST",
-            url : "/addGenreToBook/" + window.book.id,
+            url : "/book/addGenreToBook/" + window.book.id,
             data : JSON.stringify(formData),
             contentType : "application/json; charset=utf-8",
             dataType : "json",
@@ -19,8 +19,7 @@ $(document).ready(function() {
                 console.log("success add author!");
             },
             error : function(e) {
-                console.log("ERROR: ", e);
-                alert("ERROR: "+ e);
+                console.error("ERROR: ", e);
             }
         });
     }

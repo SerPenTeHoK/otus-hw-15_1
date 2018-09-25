@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@RequestMapping("/book")
 public class BookRestController {
     private final BookService bookService;
     private final AuthorService authorService;
@@ -30,19 +31,19 @@ public class BookRestController {
         return books;
     }
 
-    @PostMapping("/addBook")
+    @PostMapping
     public List<Book> addBook(@RequestBody Book book) {
         bookService.save(book);
         return bookService.findAll();
     }
 
-    @DeleteMapping("/deleteBook/{bookId}")
-    public List<Book> deleteBook(@PathVariable String bookId) {
-        bookService.deleteById(bookId);
+    @DeleteMapping("/{id}")
+    public List<Book> deleteBook(@PathVariable String id) {
+        bookService.deleteById(id);
         return bookService.findAll();
     }
 
-    @PutMapping("/editBook")
+    @PutMapping
     public Book editBook( @RequestBody Book book) {
         Book bookFromDb = bookService.getById(book.getId()).orElseThrow(NotFoundException::new);
         bookFromDb.setTitle(book.getTitle());

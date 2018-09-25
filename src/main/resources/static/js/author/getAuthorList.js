@@ -1,4 +1,4 @@
-function getAuthors(){
+function getAuthorList(){
     var resultAuthors = $.ajax({
         type : "GET",
         contentType : "application/json",
@@ -9,7 +9,7 @@ function getAuthors(){
             console.log("success get authors!");
         },
         error : function(e) {
-            console.log("ERROR: ", e);
+            console.error("ERROR: ", e);
         },
         async : false
     });

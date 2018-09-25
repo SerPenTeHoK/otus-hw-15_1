@@ -8,7 +8,7 @@ function deleteGenre(genreName){
     $.ajax({
         type : "DELETE",
         contentType : "application/json",
-        url : "/deleteGenreFromBook/" + window.book.id,
+        url : "/book/deleteGenreFromBook/" + window.book.id,
         data : JSON.stringify(formData),
         dataType : "json",
         success : function(result) {
