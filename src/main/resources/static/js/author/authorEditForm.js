@@ -1,43 +1,64 @@
-function editAuthorForm(author) {
+function createAuthorEditForm(author) {
 
     var root = document.getElementById("root");
     while (root.firstChild) {
         root.removeChild(root.firstChild);
     }
 
-    var editAuthorFormDiv = document.getElementById("root");
+    var root = document.getElementById("root");
+
+    // <a href="/">Return to main page</a>
+    var aMainPage = document.createElement("a");
+    aMainPage.setAttribute("href", "/");
+    aMainPage.innerHTML = "Return to main page";
+    root.appendChild(aMainPage);
+
+//<form th:object="${author}" id="editAuthorForm">
+
+    var divFormEditAuthor = document.createElement("DIV");
     var editAuthorForm = document.createElement("FORM");
     editAuthorForm.setAttribute("id", "editAuthorForm");
 
-    var authorIdP = document.createElement("P");
-    authorIdP.innerHTML = "Author id: ";
+
+    // <h1>Authors:</h1>
+    var h1Authors = document.createElement("H1");
+    h1Authors.innerHTML = "Authors:";
+    editAuthorForm.appendChild(h1Authors);
+
+    //             <p>Author name: <input type="text" id="name"/></p>
+    var pAuthorId = document.createElement("P");
+    pAuthorId.innerHTML = "Author id: ";
     var authorIdInput = document.createElement("INPUT");
+    authorIdInput.setAttribute("type", "text");
     authorIdInput.setAttribute("id", "id");
+    authorIdInput.setAttribute("readonly", "readonly");
     authorIdInput.value = author["id"];
-    authorIdP.appendChild(authorIdInput);
-    editAuthorForm.appendChild(authorIdP);
+    pAuthorId.appendChild(authorIdInput);
+    editAuthorForm.appendChild(pAuthorId);
 
-    var authorFirstNameP = document.createElement("P");
-    authorFirstNameP.innerHTML = "Author firstName: ";
-    var authorFirstNameInput = document.createElement("INPUT");
-    authorFirstNameInput.setAttribute("id", "firstName");
-    authorFirstNameInput.value = author["firstName"];
-    authorFirstNameP.appendChild(authorFirstNameInput);
-    editAuthorForm.appendChild(authorFirstNameP);
+    var pAuthorName = document.createElement("P");
+    pAuthorName.innerHTML = "Author name: ";
+    var authorNameInput = document.createElement("INPUT");
+    authorNameInput.setAttribute("type", "text");
+    authorNameInput.setAttribute("id", "name");
+    authorNameInput.value = author["name"];
+    pAuthorName.appendChild(authorNameInput);
+    editAuthorForm.appendChild(pAuthorName);
 
-    var authorSecondNameP = document.createElement("P");
-    authorSecondNameP.innerHTML = "Book secondName: ";
-    var authorSecondNameInput = document.createElement("INPUT");
-    authorSecondNameInput.setAttribute("id", "secondName");
-    authorSecondNameInput.value = author["secondName"];
-    authorSecondNameP.appendChild(authorSecondNameInput);
-    editAuthorForm.appendChild(authorSecondNameP);
+    event.preventDefault();
 
-    var buttonFormEditAuthor = document.createElement("BUTTON");
-    buttonFormEditAuthor.innerHTML = "Edit author";
-    buttonFormEditAuthor.setAttribute("type", "submit");
-    buttonFormEditAuthor.onclick = editAuthor;
-    editAuthorForm.appendChild(buttonFormEditAuthor);
-    editAuthorFormDiv.appendChild(editAuthorForm);
+    var buttonEditAuthorForm = document.createElement("BUTTON");
+    buttonEditAuthorForm.innerHTML = "Edit author";
+    buttonEditAuthorForm.setAttribute("type", "submit");
 
+    buttonEditAuthorForm.onclick = //editAuthor();
+        function(){
+
+            editAuthor();
+        };
+
+    editAuthorForm.appendChild(buttonEditAuthorForm);
+
+    divFormEditAuthor.appendChild(editAuthorForm);
+    root.appendChild(divFormEditAuthor);
 }

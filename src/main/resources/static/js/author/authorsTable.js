@@ -51,6 +51,9 @@ function markupAuthorsTable(authorData){
         tdEdit.setAttribute("Edit", "LinkEditById");
         var linkEdit = document.createElement("a");
         linkEdit.href = "/author?id="+ rowData["id"];
+        linkEdit.onclick = function(){
+            createAuthorEditForm(rowData);
+        };
         var linkEditText = document.createTextNode("edit");
         linkEdit.appendChild(linkEditText);
         tdEdit.appendChild(linkEdit);

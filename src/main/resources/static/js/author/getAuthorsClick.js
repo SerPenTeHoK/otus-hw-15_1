@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#getAuthors").click(function (event) {
         event.preventDefault();
-        createTableAuthors(JSON.parse(getAuthorList()));
+        createAuthorListForm(JSON.parse(getAuthorList()));
     });
 })
