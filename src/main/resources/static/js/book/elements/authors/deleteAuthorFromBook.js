@@ -8,7 +8,7 @@ function deleteAuthorFromBook(authorId){
     $.ajax({
         type : "DELETE",
         contentType : "application/json",
-        url : "/deleteAuthorFromBook/" + window.book.id,
+        url : "/book/deleteAuthorFromBook/" + window.book.id,
         data : JSON.stringify(formData),
         dataType : "json",
         success : function(result) {

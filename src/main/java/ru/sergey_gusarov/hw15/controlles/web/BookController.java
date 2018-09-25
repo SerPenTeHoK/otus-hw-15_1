@@ -49,7 +49,7 @@ public class BookController {
         return "bookEdit";
     }
 
-    @RequestMapping(value = "/book", method = RequestMethod.POST)
+    @RequestMapping(value = "/books", method = RequestMethod.POST)
     public String editOldBook(@ModelAttribute Book book) {
         bookService.save(book);
         return "redirect:/books";

@@ -8,7 +8,7 @@ function deleteComment(commentText){
     $.ajax({
         type : "DELETE",
         contentType : "application/json",
-        url : "/deleteCommentFromBook/" + window.book.id,
+        url : "/book/deleteCommentFromBook/" + window.book.id,
         data : JSON.stringify(formData),
         dataType : "json",
         success : function(result) {
