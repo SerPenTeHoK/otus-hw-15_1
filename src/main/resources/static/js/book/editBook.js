@@ -5,8 +5,8 @@ $(document).ready(function() {
     });
     function editBook(){
         var formData = {
-            id : $("#book-id").val(),
-            title : $("#book-title").val(),
+            id : $("#id").val(),
+            title : $("#title").val(),
         }
         $.ajax({
             type : "PUT",
@@ -23,3 +23,23 @@ $(document).ready(function() {
         });
     }
 })
+
+function editBook(){
+    var formData = {
+        id : $("#id").val(),
+        title : $("#title").val(),
+    }
+    $.ajax({
+        type : "PUT",
+        contentType : "application/json",
+        url : "/book",
+        data : JSON.stringify(formData),
+        dataType : "json",
+        success : function(result) {
+            console.log("success edit book!");
+        },
+        error : function(e) {
+            console.error("ERROR: ", e);
+        }
+    });
+}

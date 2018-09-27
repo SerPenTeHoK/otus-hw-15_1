@@ -28,20 +28,20 @@ public class BookController {
         this.authorService = authorService;
     }
 
-    @RequestMapping("/books")
+    //@RequestMapping("/books")
     public String listBookPage(Model model) {
         List<Book> books = bookService.findAll();
         model.addAttribute("books", books);
         return "books";
     }
 
-    @RequestMapping("/newBook")
+    //@RequestMapping("/newBook")
     public String newBookPage(@ModelAttribute Book book) {
         bookService.save(book);
         return "bookEdit";
     }
 
-    @RequestMapping("/book")
+    //@RequestMapping("/book")
     public String bookPage(@RequestParam("id") String id, Model model) {
         Book book = bookService.findById(id).orElseThrow(NotFoundException::new);
         model.addAttribute("book", book);
@@ -49,19 +49,19 @@ public class BookController {
         return "bookEdit";
     }
 
-    @RequestMapping(value = "/books", method = RequestMethod.POST)
+    //@RequestMapping(value = "/books", method = RequestMethod.POST)
     public String editOldBook(@ModelAttribute Book book) {
         bookService.save(book);
         return "redirect:/books";
     }
 
-    @RequestMapping(value = "/deleteBook")
+    //@RequestMapping(value = "/deleteBook")
     public String deleteBook(@ModelAttribute Book book) {
         bookService.deleteById(book.getId());
         return "redirect:/books";
     }
 
-    @RequestMapping(value = "/delAuthorFromBook")
+    //@RequestMapping(value = "/delAuthorFromBook")
     public String deleteAuthorFromBook(@ModelAttribute Book book, @RequestParam("authorId") String authorId) {
         Book bookFromDb = bookService.findById(book.getId()).orElseThrow(NotFoundException::new);
         Author authorForDel = bookFromDb.getAuthors().stream()
@@ -72,7 +72,7 @@ public class BookController {
         return "redirect:/book?id=" + bookFromDb.getId();
     }
 
-    @RequestMapping(value = "/newCommentForBook", method = RequestMethod.GET)
+    //@RequestMapping(value = "/newCommentForBook", method = RequestMethod.GET)
     public String addCommentBook(@ModelAttribute Book book) {
         Book bookFromDb = bookService.findById(book.getId()).orElseThrow(NotFoundException::new);
         bookFromDb.getBookComments().add(new BookComment(""));
@@ -80,7 +80,7 @@ public class BookController {
         return "redirect:/book?id=" + bookFromDb.getId();
     }
 
-    @RequestMapping(value = "/newGenreForBook", method = RequestMethod.GET)
+    //@RequestMapping(value = "/newGenreForBook", method = RequestMethod.GET)
     public String addGenreBook(@ModelAttribute Book book) {
         Book bookFromDb = bookService.findById(book.getId()).orElseThrow(NotFoundException::new);
         bookFromDb.getGenres().add(new Genre(""));
@@ -88,7 +88,7 @@ public class BookController {
         return "redirect:/book?id=" + bookFromDb.getId();
     }
 
-    @RequestMapping(value = "/delCommentForBook", method = RequestMethod.GET)
+    //@RequestMapping(value = "/delCommentForBook", method = RequestMethod.GET)
     public String deleteBookComment(@ModelAttribute Book book, @RequestParam("commentNum") int commentNum) {
         Book bookFromDb = bookService.findById(book.getId()).orElseThrow(NotFoundException::new);
         bookFromDb.getBookComments().remove(commentNum);
@@ -96,7 +96,7 @@ public class BookController {
         return "redirect:/book?id=" + bookFromDb.getId();
     }
 
-    @RequestMapping(value = "/delGenreForBook", method = RequestMethod.GET)
+    //@RequestMapping(value = "/delGenreForBook", method = RequestMethod.GET)
     public String deleteGenreBook(@ModelAttribute Book book, @RequestParam("genreNum") int genreNum) {
         Book bookFromDb = bookService.findById(book.getId()).orElseThrow(NotFoundException::new);
         bookFromDb.getGenres().remove(genreNum);

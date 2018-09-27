@@ -51,9 +51,8 @@ function createAuthorEditForm(author) {
     buttonEditAuthorForm.innerHTML = "Edit author";
     buttonEditAuthorForm.setAttribute("type", "submit");
 
-    buttonEditAuthorForm.onclick = //editAuthor();
-        function(){
-
+    buttonEditAuthorForm.onclick =
+        function () {
             editAuthor();
         };
 

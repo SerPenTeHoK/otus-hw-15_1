@@ -49,6 +49,9 @@ function markupBooksTable(bookData){
         var linkEdit = document.createElement("a");
         linkEdit.href = "/book?id="+ rowData["id"];
         var linkEditText = document.createTextNode("edit");
+        linkEdit.onclick = function(){
+            createBookEditForm(rowData);
+        };
         linkEdit.appendChild(linkEditText);
         tdEdit.appendChild(linkEdit);
 

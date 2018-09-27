@@ -1,4 +1,4 @@
-function getBooks(){
+function getBookList(){
     var resultBooks = $.ajax({
         type : "GET",
         contentType : "application/json",

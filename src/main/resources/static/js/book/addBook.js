@@ -20,7 +20,7 @@ $(document).ready(function() {
             },
             error : function(e) {
                 console.error("ERROR: ", e);
-                alert('Duplicate name = ' + $("#name").val());
+                alert('Duplicate title = ' + $("#title").val());
             }
         });
     }

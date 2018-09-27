@@ -25,7 +25,7 @@ public class BookRestController {
         this.authorService = authorService;
     }
 
-    //@GetMapping("/books")
+    @GetMapping
     public  List<Book> listBookPage() {
         List<Book> books = bookService.findAll();
         return books;
