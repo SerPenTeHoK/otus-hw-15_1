@@ -27,6 +27,9 @@ function createBookListForm(booksData1){
     var bookTitleInputSubmit = document.createElement("INPUT");
     bookTitleInputSubmit.setAttribute("type", "submit");
     bookTitleInputSubmit.setAttribute("value", "Add book");
+    bookTitleInputSubmit.onclick = function () {
+        addBook();
+    };
     pBookTitleSubmit.appendChild(bookTitleInputSubmit);
 
     addBookForm.appendChild(pBookTitle);

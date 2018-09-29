@@ -14,12 +14,10 @@ function markupAuthorSelectorForBook(authorsData){
     comboBoxAuthors.setAttribute("name", "comboBoxAuthor");
     book.authors = JSON.parse(getAuthorsFromBook());
     window.authors = book.authors;
-    console.log(window.authors);
     authorsSelectorData.forEach(function(rowData) {
         var authorIdForExclude = window.authors.filter(function(val) {
             return val.name == rowData["name"];
         })[0];
-        //console.log(authorIdForExclude);
         if(authorIdForExclude == null) {
             var optionAuthor = document.createElement("option");
             optionAuthor.text = rowData["name"];

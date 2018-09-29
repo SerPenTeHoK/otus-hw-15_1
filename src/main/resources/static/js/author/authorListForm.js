@@ -21,13 +21,17 @@ function createAuthorListForm(authorsData1){
     pAuthorName.innerHTML = "Author name: ";
     var authorNameInput = document.createElement("INPUT");
     authorNameInput.setAttribute("type", "text");
-    authorNameInput.setAttribute("id", "name");
+    authorNameInput.setAttribute("id", "authorName");
     pAuthorName.appendChild(authorNameInput);
     //             <p><input type="submit" value="Add author"/></p>
     var pAuthorNameSubmit = document.createElement("P");
     var authorNameInputSubmit = document.createElement("INPUT");
     authorNameInputSubmit.setAttribute("type", "submit");
     authorNameInputSubmit.setAttribute("value", "Add author");
+    authorNameInputSubmit.click()
+    authorNameInputSubmit.onclick = function () {
+        addAuthor();
+    };
     pAuthorNameSubmit.appendChild(authorNameInputSubmit);
 
     addAuthorForm.appendChild(pAuthorName);
