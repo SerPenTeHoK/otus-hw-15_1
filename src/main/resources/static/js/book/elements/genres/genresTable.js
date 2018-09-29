@@ -8,11 +8,11 @@ function markupGenreTable(genreData){
     }
     var bookData = window.book;
 
-    var genresTableDiv = document.getElementById("genresFieldset");
+    var genresTableDiv = document.getElementById("genresTableDiv");
     
     var table = document.createElement("table");
     table.setAttribute("id", "genresTable");
-    //table.className = "blueTable";
+    table.className = "blueTable";
 
     var trHead = document.createElement("tr");
     var thGenreName = document.createElement("th");
@@ -53,5 +53,4 @@ function markupGenreTable(genreData){
         table.appendChild(trBody);
     });
     genresTableDiv.appendChild(table);
-
 }

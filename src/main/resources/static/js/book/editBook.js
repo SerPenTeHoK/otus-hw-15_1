@@ -25,6 +25,7 @@ $(document).ready(function() {
 })
 
 function editBook(){
+    event.preventDefault();
     var formData = {
         id : $("#id").val(),
         title : $("#title").val(),
