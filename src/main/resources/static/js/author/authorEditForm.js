@@ -7,18 +7,10 @@ function createAuthorEditForm(author) {
 
     var root = document.getElementById("root");
 
-    // <a href="/">Return to main page</a>
-    var aMainPage = document.createElement("a");
-    aMainPage.setAttribute("href", "/");
-    aMainPage.innerHTML = "Return to main page";
-    root.appendChild(aMainPage);
-
 //<form th:object="${author}" id="editAuthorForm">
-
     var divFormEditAuthor = document.createElement("DIV");
     var editAuthorForm = document.createElement("FORM");
     editAuthorForm.setAttribute("id", "editAuthorForm");
-
 
     // <h1>Authors:</h1>
     var h1Authors = document.createElement("H1");

@@ -14,6 +14,7 @@ function deleteAuthorFromBook(authorId){
         success : function(result) {
             console.log(result);
             markupAuthorsTableForBook(result);
+            markupAuthorSelectorForBook(window.allAuthors);
         },
         error : function(e) {
             console.error("ERROR: ", e);

@@ -1,5 +1,5 @@
 function createBookEditForm(book) {
-
+    event.preventDefault();
     var root = document.getElementById("root");
     while (root.firstChild) {
         root.removeChild(root.firstChild);
@@ -47,10 +47,13 @@ function createBookEditForm(book) {
     divFormEditBook.appendChild(editBookForm);
     root.appendChild(divFormEditBook);
 
+
     //Genre
-    var h1Genres = document.createElement("H1");
-    h1Genres.innerHTML = "Genres:";
-    root.appendChild(h1Genres);
+    window.genres = book.genres;
+
+    var h2Genres = document.createElement("H2");
+    h2Genres.innerHTML = "Genres:";
+    root.appendChild(h2Genres);
 
     var divFormAddGenre = document.createElement("DIV");
     var addGenreFormBook = document.createElement("FORM");
@@ -81,10 +84,85 @@ function createBookEditForm(book) {
     divGenresTable.setAttribute("id", "genresTableDiv");
     root.appendChild(divGenresTable)
 
-    window.genres = book.genres;
-
     markupGenreTable();
 
+    //Authors
+    window.authors = book.authors;
+    window.allAuthors = JSON.parse(getAuthorList());
 
+    var h2Authors = document.createElement("H2");
+    h2Authors.innerHTML = "Authors:";
+    root.appendChild(h2Authors);
+
+    var divFormAddAuthor = document.createElement("DIV");
+    var addAuthorFormBook = document.createElement("FORM");
+    addAuthorFormBook.setAttribute("id", "addAuthorForm");
+
+    var divComboBoxAuthor = document.createElement("DIV");
+    divComboBoxAuthor.setAttribute("id", "comboBoxAuthorDiv");
+    addAuthorFormBook.appendChild(divComboBoxAuthor);
+    var pAuthorSubmit = document.createElement("DIV");
+    var authorInputSubmit = document.createElement("BUTTON");
+    authorInputSubmit.setAttribute("type", "submit");
+    authorInputSubmit.setAttribute("value", "Add selected author");
+    authorInputSubmit.innerHTML = "Add selected author";
+    authorInputSubmit.class = "addAuthorInBook";
+    authorInputSubmit.onclick = function () {
+        addAuthorToBook();
+    };
+    pAuthorSubmit.appendChild(authorInputSubmit);
+    addAuthorFormBook.appendChild(pAuthorSubmit);
+    divFormAddAuthor.appendChild(addAuthorFormBook);
+
+    root.appendChild(divFormAddAuthor);
+    markupAuthorSelectorForBook();
+
+    var divAuthorsTable = document.createElement("DIV");
+    divAuthorsTable.setAttribute("id", "authorsTableDiv");
+    root.appendChild(divAuthorsTable);
+    markupAuthorsTableForBook();
+
+
+    //Comment
+    window.comments = book.bookComments;
+
+    var h2Comments = document.createElement("H2");
+    h2Comments.innerHTML = "Comments:";
+    root.appendChild(h2Comments);
+
+    var divFormAddComment = document.createElement("DIV");
+    var addCommentFormBook = document.createElement("FORM");
+    addCommentFormBook.setAttribute("id", "addCommentForm");
+
+    var pCommentName = document.createElement("P");
+    pCommentName.innerHTML = "Comment text: ";
+    var commentNameInput = document.createElement("INPUT");
+    commentNameInput.setAttribute("type", "CommentText");
+    commentNameInput.setAttribute("id", "commentText");
+    pCommentName.appendChild(commentNameInput);
+
+    var pCommentNameSubmit = document.createElement("P");
+    var commentNameInputSubmit = document.createElement("INPUT");
+    commentNameInputSubmit.setAttribute("type", "submit");
+    commentNameInputSubmit.setAttribute("value", "Add comment");
+    commentNameInputSubmit.onclick = function () {
+        addComment();
+    };
+    pCommentNameSubmit.appendChild(commentNameInputSubmit);
+
+    addCommentFormBook.appendChild(pCommentName);
+    addCommentFormBook.appendChild(pCommentNameSubmit);
+    divFormAddComment.appendChild(addCommentFormBook);
+    root.appendChild(divFormAddComment);
+
+    var divCommentsTable = document.createElement("DIV");
+    divCommentsTable.setAttribute("id", "commentsDiv");
+
+    var divCommentsfieldset = document.createElement("fieldset");
+    divCommentsfieldset.setAttribute("id", "commentsFieldset");
+    divCommentsTable.appendChild(divCommentsfieldset);
+    root.appendChild(divCommentsTable);
+
+    markupCommentTable();
 
 }

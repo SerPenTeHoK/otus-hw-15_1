@@ -119,4 +119,11 @@ public class BookRestController {
         Book bookFromUpdateDb = bookService.findById(bookId).orElseThrow(NotFoundException::new);
         return bookFromUpdateDb.getAuthors();
     }
+
+    @GetMapping("/getAuthorsFromBook/{bookId}")
+    public  List<Author> listAuthorBook(@PathVariable String bookId) {
+        List<Author> authors = bookService.findById(bookId).orElseThrow(NotFoundException::new).getAuthors();
+        return authors;
+    }
+
 }

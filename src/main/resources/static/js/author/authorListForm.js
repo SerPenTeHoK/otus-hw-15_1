@@ -10,11 +10,6 @@ function createAuthorListForm(authorsData1){
     var h1Authors = document.createElement("H1");
     h1Authors.innerHTML = "Authors:";
     root.appendChild(h1Authors);
-    // <a href="/">Return to main page</a>
-    var aMainPage = document.createElement("a");
-    aMainPage.setAttribute("href", "/");
-    aMainPage.innerHTML = "Return to main page";
-    root.appendChild(aMainPage);
 
     // <div>
     //         <form id="addAuthorForm">

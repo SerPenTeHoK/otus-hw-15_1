@@ -9,11 +9,6 @@ function createBookListForm(booksData1){
     var h1Books = document.createElement("H1");
     h1Books.innerHTML = "Books:";
     root.appendChild(h1Books);
-    // <a href="/">Return to main page</a>
-    var aMainPage = document.createElement("a");
-    aMainPage.setAttribute("href", "/");
-    aMainPage.innerHTML = "Return to main page";
-    root.appendChild(aMainPage);
 
     // <div>
     //         <form id="addBookForm">
